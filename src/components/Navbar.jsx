@@ -8,7 +8,7 @@ export default function Navbar() {
         <div className="border border-stone-600 px-1.5 py-0.5 text-stone-600">
           来 中 国 带 你 去 旅 行
         </div>
-        <div className="hidden sm:block text-stone-700">AI 超级个人</div>
+        <div className="hidden sm:block text-stone-700">你好，秋草</div>
       </div>
       <div className="flex items-center space-x-8">
         <nav className="space-x-4">

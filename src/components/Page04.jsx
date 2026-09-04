@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { LetterSwapPingPong } from "./LetterSwap.jsx";
 
-export default function Page02() {
+export default function Page04() {
   return (
     <>
       <main className="w-full my-auto flex flex-col items-center relative">
@@ -13,13 +13,13 @@ export default function Page02() {
               fontSize: "clamp(3rem, 10vw, 9.5rem)",
             }}
           >
-            Illustration
+            Qiu Cao
           </div>
 
           <div className="absolute right-4 md:right-20 top-0 md:top-0 text-[10px] tracking-widest uppercase text-stone-700 font-medium leading-relaxed">
-            这是我认真做的
+            存档编号 A001
             <br />
-            第一封自我介绍
+            藏品：关于你的所有
           </div>
 
           <div
@@ -29,13 +29,13 @@ export default function Page02() {
               fontSize: "clamp(3rem, 10vw, 9.5rem)",
             }}
           >
-            Design
+            Collection
           </div>
         </div>
 
         <div className="w-full max-w-2xl mt-12 flex flex-col sm:flex-row justify-between items-start sm:items-center px-4 space-y-6 sm:space-y-0">
           <p className="text-xs sm:text-sm text-stone-800 max-w-xs leading-relaxed font-normal">
-            写给秋草，见字如面。这一页不是作品展，是我的开场白——后面的内容，都是想让你开心才准备的。
+            本站唯一的私藏系列，藏品名为「秋草」。当前收录：一个名字、三页心意，和一份还没说出口的邀请。后续展品，持续上架中。
           </p>
           <Link
             to="/detail/page01"

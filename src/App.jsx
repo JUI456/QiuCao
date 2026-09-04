@@ -6,15 +6,21 @@ import Footer from "./components/Footer.jsx";
 import Page01 from "./components/Page01.jsx";
 import Page02 from "./components/Page02.jsx";
 import Page03 from "./components/Page03.jsx";
+import Page04 from "./components/Page04.jsx";
+import Page05 from "./components/Page05.jsx";
+import Page06 from "./components/Page06.jsx";
 import { ImageTrail } from "./components/ImageTrail.jsx";
 
-const PAGES = [Page01, Page02, Page03];
+const PAGES = [Page01, Page02, Page03, Page04, Page05, Page06];
 // BASE_URL 本地为 '/'，GitHub Pages 构建后为 '/QiuCao/'
 const BASE = import.meta.env.BASE_URL;
 const PAGE_IMAGES = [
   `${BASE}illustration/01.png`,
   `${BASE}portfolio/01.png`,
   `${BASE}photograph/01.png`,
+  `${BASE}illustration/03.png`,
+  `${BASE}portfolio/02.png`,
+  `${BASE}photograph/03.png`,
 ];
 
 // Trail 图片元素
@@ -43,6 +49,21 @@ const PAGE_COLORS = [
     color1: [24, 93, 87], // 迷雾蓝
     color2: [176, 196, 222], // 钢青
     backgroundColor: "#f5f7fa", // 浅岩灰
+  },
+  {
+    color1: [214, 166, 95], // 暖沙金
+    color2: [187, 138, 168], // 灰紫
+    backgroundColor: "#f5ecd8", // 鹅黄纸
+  },
+  {
+    color1: [136, 172, 182], // 薄青
+    color2: [168, 198, 208], // 雾蓝绿
+    backgroundColor: "#e9f0f2", // 淡青灰
+  },
+  {
+    color1: [235, 152, 166], // 樱花粉
+    color2: [196, 160, 222], // 淡紫
+    backgroundColor: "#f9e8ec", // 薄粉
   },
 ];
 

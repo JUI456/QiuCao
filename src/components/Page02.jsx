@@ -17,9 +17,9 @@ export default function Page01() {
           </div>
 
           <div className="absolute right-4 md:right-20 top-12 md:top-20 text-[10px] tracking-widest uppercase text-stone-700 font-medium leading-relaxed">
-            原作者
+            有些话说不出口
             <br />
-            HH欢
+            写下来就不难为情
           </div>
 
           <div
@@ -35,7 +35,7 @@ export default function Page01() {
 
         <div className="w-full max-w-2xl mt-12 flex flex-col sm:flex-row justify-between items-start sm:items-center px-4 space-y-6 sm:space-y-0">
           <p className="text-xs sm:text-sm text-stone-800 max-w-xs leading-relaxed font-normal">
-            所有项目素材来源于互联网，版权归原作者所有，只是为了填充此次展示的内容，没有用于商业。
+            有些话当面说会脸红，所以我把它藏进了配色和字里行间。偷偷告诉你：这一整页，都是想着你排的版。
           </p>
           <Link
             to="/detail/page02"
