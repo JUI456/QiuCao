@@ -3,6 +3,7 @@ import { useSearchParams } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import Navbar from "./components/Navbar.jsx";
 import Footer from "./components/Footer.jsx";
+import ChapterNav from "./components/ChapterNav.jsx";
 import Page01 from "./components/Page01.jsx";
 import Page02 from "./components/Page02.jsx";
 import Page03 from "./components/Page03.jsx";
@@ -65,6 +66,14 @@ const PAGE_COLORS = [
     color2: [196, 160, 222], // 淡紫
     backgroundColor: "#f9e8ec", // 薄粉
   },
+];
+
+// 顶部章节导航：6 个全屏板块归入 4 个章节（pages 为归属该章节的屏序号）
+const CHAPTERS = [
+  { label: "首页", first: 0, pages: [0] },
+  { label: "与你有关", first: 1, pages: [1, 3, 4] },
+  { label: "我们的时光", first: 2, pages: [2] },
+  { label: "愿望清单", first: 5, pages: [5] },
 ];
 
 const TRANSITION_DURATION = 0.8; // 秒
@@ -142,8 +151,23 @@ export default function App() {
     };
   }, []);
 
+  // 点击章节导航：跳转到该章节的第一屏（按循环取最短方向）
+  const jumpTo = (target) => {
+    if (isTransitioning.current || target === page) return;
+    isTransitioning.current = true;
+    const diff = (target - page + total) % total;
+    setDirection(diff > 0 && diff <= total / 2 ? 1 : -1);
+    setPage(target);
+    setTimeout(() => {
+      isTransitioning.current = false;
+    }, TRANSITION_DURATION * 1000);
+  };
+
   const CurrentPage = PAGES[page];
   const currentColors = PAGE_COLORS[page];
+  const activeChapter = CHAPTERS.findIndex((chapter) =>
+    chapter.pages.includes(page),
+  );
 
   return (
     <>
@@ -182,6 +206,12 @@ export default function App() {
         </ImageTrail>
 
         <Navbar />
+
+        <ChapterNav
+          chapters={CHAPTERS}
+          activeIndex={activeChapter}
+          onSelect={(index) => jumpTo(CHAPTERS[index].first)}
+        />
 
         <main className="w-full min-h-screen flex flex-col items-center justify-center pb-24">
           <AnimatePresence mode="wait" custom={direction}>
