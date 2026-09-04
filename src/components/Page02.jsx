@@ -19,7 +19,7 @@ export default function Page01() {
           <div className="absolute right-4 md:right-20 top-12 md:top-20 text-[10px] tracking-widest uppercase text-stone-700 font-medium leading-relaxed">
             原作者
             <br />
-            Van Tan
+            HH欢
           </div>
 
           <div

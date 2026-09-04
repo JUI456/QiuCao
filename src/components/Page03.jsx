@@ -19,7 +19,7 @@ export default function Page03() {
           <div className="absolute right-4 md:right-20 top-0 md:top-0 text-[10px] tracking-widest uppercase text-stone-700 font-medium leading-relaxed">
             原作者
             <br />
-            The WanderingSoul
+            HH欢
           </div>
 
           <div
