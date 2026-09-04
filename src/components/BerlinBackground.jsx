@@ -11,10 +11,10 @@ const BerlinBackground = () => {
 
   // 数据源
   const TEXT_DATA = [
-    { title: "关于你的事\n我都记得", no: "N. 01", year: "Y. 2026" },
-    { title: "这一页里\n藏着秘密", no: "N. 02", year: "Y. 2026" },
-    { title: "再看一眼\n就要心动", no: "N. 03", year: "Y. 2026" },
-    { title: "故事还长\n我们慢慢讲", no: "N. 04", year: "Y. 2026" },
+    { title: "柏林的秋天\n替你先看一场", no: "N. 01", year: "Y. 2026" },
+    { title: "街灯亮起来时\n正巧想起你", no: "N. 02", year: "Y. 2026" },
+    { title: "这一页放慢了\n只等你来入镜", no: "N. 03", year: "Y. 2026" },
+    { title: "路还很长\n我们慢慢走", no: "N. 04", year: "Y. 2026" },
   ];
 
   const IMG_URLS = [
@@ -24,16 +24,34 @@ const BerlinBackground = () => {
     `${import.meta.env.BASE_URL}illustration/02.png`,
   ];
 
-  const CONFIG = {
-    size: 200, // 圆形直径（px）
-    gap: 40, // 纵向间隔（px）
-    trackOffset: 150, // 左右两排的中心跨度（px）
-    friction: 0.6, // 降低摩擦力，增加惯性持续时间
-    bounce: 0.3, // 弹性系数，增加轻微的回弹效果
-    settleThreshold: 0.05, // 完全停止的阈值
+  // 依据窗口宽度构建布局配置：窄屏（手机）等比缩小轨道与圆，避免被裁切
+  const buildConfig = (width) => {
+    const compact = width < 768;
+    return {
+      size: compact ? 104 : 200, // 圆形直径（px）
+      gap: compact ? 24 : 40, // 纵向间隔（px）
+      trackOffset: compact ? 82 : 150, // 左右两排的中心跨度（px）
+      friction: 0.6, // 降低摩擦力，增加惯性持续时间
+      bounce: 0.3, // 弹性系数，增加轻微的回弹效果
+      settleThreshold: 0.05, // 完全停止的阈值
+      compact,
+    };
   };
 
-  const totalHeight = 4 * CONFIG.size + 4 * CONFIG.gap;
+  const [cfg, setCfg] = useState(() => buildConfig(window.innerWidth));
+  const cfgRef = useRef(cfg);
+
+  useEffect(() => {
+    const onResize = () => setCfg(buildConfig(window.innerWidth));
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
+
+  useEffect(() => {
+    cfgRef.current = cfg;
+  }, [cfg]);
+
+  const totalHeight = 4 * cfg.size + 4 * cfg.gap;
 
   const mod = (n, m) => {
     return ((n % m) + m) % m;
@@ -59,32 +77,33 @@ const BerlinBackground = () => {
     window.addEventListener("touchmove", handleTouchMove, { passive: true });
 
     const animate = () => {
+      const c = cfgRef.current;
       // 应用摩擦力
-      globalVelocityRef.current *= CONFIG.friction;
+      globalVelocityRef.current *= c.friction;
 
       // 添加轻微的弹性效果（当速度接近0时）
       if (
         Math.abs(globalVelocityRef.current) < 2 &&
-        Math.abs(globalVelocityRef.current) > CONFIG.settleThreshold
+        Math.abs(globalVelocityRef.current) > c.settleThreshold
       ) {
-        globalVelocityRef.current *= 1 - CONFIG.bounce * 0.1;
+        globalVelocityRef.current *= 1 - c.bounce * 0.1;
       }
 
       // 完全停止阈值
-      if (Math.abs(globalVelocityRef.current) < CONFIG.settleThreshold) {
+      if (Math.abs(globalVelocityRef.current) < c.settleThreshold) {
         globalVelocityRef.current = 0;
       }
 
       setPositions((prev) => {
         const newLeft = prev.left.map((pos) => {
           const newPos =
-            pos + globalVelocityRef.current / (CONFIG.size + CONFIG.gap);
+            pos + globalVelocityRef.current / (c.size + c.gap);
           return mod(newPos + 4, 4);
         });
 
         const newRight = prev.right.map((pos) => {
           const newPos =
-            pos - globalVelocityRef.current / (CONFIG.size + CONFIG.gap);
+            pos - globalVelocityRef.current / (c.size + c.gap);
           return mod(newPos + 4, 4);
         });
 
@@ -105,17 +124,18 @@ const BerlinBackground = () => {
   }, []);
 
   const renderCircle = (index, isText, track, position) => {
-    const baseY = position * (CONFIG.size + CONFIG.gap);
-    const x = track === "left" ? -CONFIG.trackOffset : CONFIG.trackOffset;
+    const k = cfg.size / 200; // 缩放系数（200 为桌面基准尺寸）
+    const baseY = position * (cfg.size + cfg.gap);
+    const x = track === "left" ? -cfg.trackOffset : cfg.trackOffset;
     const y = baseY - totalHeight / 2;
 
     const style = {
       position: "absolute",
-      width: CONFIG.size,
-      height: CONFIG.size,
+      width: cfg.size,
+      height: cfg.size,
       borderRadius: "50%",
-      left: `calc(50% + ${x}px - ${CONFIG.size / 2}px)`,
-      top: `calc(50% + ${y}px - ${CONFIG.size / 2}px)`,
+      left: `calc(50% + ${x}px - ${cfg.size / 2}px)`,
+      top: `calc(50% + ${y}px - ${cfg.size / 2}px)`,
       transform: `translateY(${globalVelocityRef.current * 0.15}px) scale(${1 + Math.abs(globalVelocityRef.current) * 0.001})`,
       transition: "transform 0.05s ease-out",
       willChange: "transform",
@@ -124,6 +144,9 @@ const BerlinBackground = () => {
     if (isText) {
       const textItem = TEXT_DATA[index % TEXT_DATA.length];
       const lines = textItem.title.split("\n");
+      const smallSize = Math.max(10, Math.round(12 * k));
+      const titleSize = Math.max(14, Math.round(24 * k));
+      const textMargin = Math.max(8, Math.round(20 * k));
 
       return (
         <div
@@ -142,16 +165,16 @@ const BerlinBackground = () => {
         >
           <div
             style={{
-              fontSize: "12px",
+              fontSize: `${smallSize}px`,
               color: "rgba(40, 40, 40, 0.6)",
-              marginBottom: "20px",
+              marginBottom: `${textMargin}px`,
             }}
           >
             {textItem.no}
           </div>
           <div
             style={{
-              fontSize: "24px",
+              fontSize: `${titleSize}px`,
               fontWeight: "500",
               fontStyle: "italic",
               color: "#1a1a1a",
@@ -164,9 +187,9 @@ const BerlinBackground = () => {
           </div>
           <div
             style={{
-              fontSize: "12px",
+              fontSize: `${smallSize}px`,
               color: "rgba(40, 40, 40, 0.6)",
-              marginTop: "20px",
+              marginTop: `${textMargin}px`,
             }}
           >
             {textItem.year}

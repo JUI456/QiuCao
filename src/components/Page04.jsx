@@ -16,10 +16,10 @@ export default function Page04() {
             Qiu Cao
           </div>
 
-          <div className="absolute right-4 md:right-20 top-0 md:top-0 text-[10px] tracking-widest uppercase text-stone-700 font-medium leading-relaxed">
-            存档编号 A001
+          <div className="absolute right-4 md:right-20 top-0 md:top-0 text-xs sm:text-[13px] md:text-sm tracking-widest uppercase text-stone-700 font-medium leading-relaxed">
+            编号 qiucao001
             <br />
-            藏品：关于你的所有
+            馆藏：关于你的全部
           </div>
 
           <div
@@ -34,16 +34,16 @@ export default function Page04() {
         </div>
 
         <div className="w-full max-w-2xl mt-12 flex flex-col sm:flex-row justify-between items-start sm:items-center px-4 space-y-6 sm:space-y-0">
-          <p className="text-xs sm:text-sm text-stone-800 max-w-xs leading-relaxed font-normal">
-            本站唯一的私藏系列，藏品名为「秋草」。当前收录：一个名字、三页心意，和一份还没说出口的邀请。后续展品，持续上架中。
+          <p className="text-sm sm:text-base text-stone-800 max-w-sm leading-relaxed font-normal">
+            全站唯一不对外的收藏。入藏标准不高：凡关于你，皆可入馆。藏品名：秋草；状态：常年陈列；借出：暂不开放。
           </p>
           <Link
             to="/detail/page01"
-            className="flex items-center space-x-6 border border-stone-900 rounded-full px-5 py-2 text-xs uppercase font-medium tracking-wider hover:bg-stone-900 hover:text-white transition-colors"
+            className="flex items-center space-x-6 border border-stone-900 rounded-full px-6 py-2.5 text-sm uppercase font-medium tracking-wider hover:bg-stone-900 hover:text-white transition-colors"
           >
             <LetterSwapPingPong
-              label="VISIT ↗"
-              className="text-xs uppercase font-medium tracking-wider"
+              label="打开 ↗"
+              className="text-sm uppercase font-medium tracking-wider"
             />
           </Link>
         </div>

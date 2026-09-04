@@ -16,10 +16,10 @@ export default function Page03() {
             Photography
           </div>
 
-          <div className="absolute right-4 md:right-20 top-0 md:top-0 text-[10px] tracking-widest uppercase text-stone-700 font-medium leading-relaxed">
-            看到这里的人
+          <div className="absolute right-4 md:right-20 top-0 md:top-0 text-xs sm:text-[13px] md:text-sm tracking-widest uppercase text-stone-700 font-medium leading-relaxed">
+            景都替你挑好了
             <br />
-            今晚会梦到彩虹
+            就差一个同路人
           </div>
 
           <div
@@ -34,16 +34,16 @@ export default function Page03() {
         </div>
 
         <div className="w-full max-w-2xl mt-12 flex flex-col sm:flex-row justify-between items-start sm:items-center px-4 space-y-6 sm:space-y-0">
-          <p className="text-xs sm:text-sm text-stone-800 max-w-xs leading-relaxed font-normal">
-            按原计划这里该是我的摄影集，但我临时改成了策划案：想约你一起去看世界，第一站你挑。答不答应，你说了算。
+          <p className="text-sm sm:text-base text-stone-800 max-w-sm leading-relaxed font-normal">
+            原计划是一本摄影集，后来翻着照片改了主意——风景哪都有，缺的是站在镜头里的那个人。所以它成了一纸企划案：目的地随你挑，门票和相机都归我。
           </p>
           <Link
             to="/detail/page03"
-            className="flex items-center space-x-6 border border-stone-900 rounded-full px-5 py-2 text-xs uppercase font-medium tracking-wider hover:bg-stone-900 hover:text-white transition-colors"
+            className="flex items-center space-x-6 border border-stone-900 rounded-full px-6 py-2.5 text-sm uppercase font-medium tracking-wider hover:bg-stone-900 hover:text-white transition-colors"
           >
             <LetterSwapPingPong
-              label="VISIT ↗"
-              className="text-xs uppercase font-medium tracking-wider"
+              label="打开 ↗"
+              className="text-sm uppercase font-medium tracking-wider"
             />
           </Link>
         </div>

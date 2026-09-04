@@ -146,8 +146,42 @@ export default function App() {
     };
 
     window.addEventListener("wheel", handleWheel, { passive: true });
+
+    // 移动端触摸翻页：以 touchstart y 为起点，超过阈值则翻页
+    let touchStartY = null;
+    let touchStartX = null;
+    const handleTouchStart = (e) => {
+      if (e.touches.length !== 1) return;
+      touchStartY = e.touches[0].clientY;
+      touchStartX = e.touches[0].clientX;
+    };
+    const handleTouchEnd = (e) => {
+      if (touchStartY === null) return;
+      const t = e.changedTouches[0];
+      const dy = touchStartY - t.clientY;
+      const dx = touchStartX - t.clientX;
+      touchStartY = null;
+      touchStartX = null;
+      const now = Date.now();
+      if (
+        isTransitioning.current ||
+        now - lastScrollTime.current < SCROLL_COOLDOWN
+      )
+        return;
+      // 垂直滑动距离够大且比水平位移更明显才算翻页，避免与横向手势冲突
+      if (Math.abs(dy) < 50 || Math.abs(dy) <= Math.abs(dx)) return;
+      lastScrollTime.current = now;
+      accumulatedDelta.current = 0;
+      if (dy > 0) goNext();
+      else goPrev();
+    };
+    window.addEventListener("touchstart", handleTouchStart, { passive: true });
+    window.addEventListener("touchend", handleTouchEnd, { passive: true });
+
     return () => {
       window.removeEventListener("wheel", handleWheel);
+      window.removeEventListener("touchstart", handleTouchStart);
+      window.removeEventListener("touchend", handleTouchEnd);
     };
   }, []);
 
@@ -213,7 +247,7 @@ export default function App() {
           onSelect={(index) => jumpTo(CHAPTERS[index].first)}
         />
 
-        <main className="w-full min-h-screen flex flex-col items-center justify-center pb-24">
+        <main className="w-full min-h-screen flex flex-col items-center justify-center pb-28 md:pb-24">
           <AnimatePresence mode="wait" custom={direction}>
             <motion.div
               key={page}

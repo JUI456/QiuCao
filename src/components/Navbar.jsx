@@ -3,7 +3,7 @@ import { LetterSwapPingPong } from "./LetterSwap.jsx";
 
 export default function Navbar() {
   return (
-    <header className="absolute top-0 left-0 right-0 w-full flex justify-between items-start text-xs font-medium tracking-wider uppercase p-6 md:p-12 md:py-7 pointer-events-auto">
+    <header className="absolute top-0 left-0 right-0 w-full flex justify-between items-start text-sm font-medium tracking-wider uppercase p-6 md:p-12 md:py-7 pointer-events-auto">
       <div className="flex items-center space-x-6">
         <div className="border border-stone-600 px-1.5 py-0.5 text-stone-600">
           来 中 国 带 你 去 旅 行
@@ -15,7 +15,7 @@ export default function Navbar() {
           <Link to="/berlin" className="hover:underline cursor-pointer">
             <LetterSwapPingPong
               label="秋草"
-              className="text-xs font-medium tracking-wider uppercase"
+              className="text-sm font-medium tracking-wider uppercase"
             />
           </Link>
         </nav>

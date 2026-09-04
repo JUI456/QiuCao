@@ -16,10 +16,10 @@ export default function Page01() {
             Portfolio
           </div>
 
-          <div className="absolute right-4 md:right-20 top-12 md:top-20 text-[10px] tracking-widest uppercase text-stone-700 font-medium leading-relaxed">
-            有些话说不出口
+          <div className="absolute right-4 md:right-20 top-12 md:top-20 text-xs sm:text-[13px] md:text-sm tracking-widest uppercase text-stone-700 font-medium leading-relaxed">
+            所有的话
             <br />
-            写下来就不难为情
+            都排进了版式里
           </div>
 
           <div
@@ -34,16 +34,16 @@ export default function Page01() {
         </div>
 
         <div className="w-full max-w-2xl mt-12 flex flex-col sm:flex-row justify-between items-start sm:items-center px-4 space-y-6 sm:space-y-0">
-          <p className="text-xs sm:text-sm text-stone-800 max-w-xs leading-relaxed font-normal">
-            有些话当面说会脸红，所以我把它藏进了配色和字里行间。偷偷告诉你：这一整页，都是想着你排的版。
+          <p className="text-sm sm:text-base text-stone-800 max-w-sm leading-relaxed font-normal">
+            习惯把话做进页面里：字距是斟酌，留白是欲言又止。你若读懂了这些小心思，我就当作收到了回信。
           </p>
           <Link
             to="/detail/page02"
-            className="flex items-center space-x-6 border border-stone-900 rounded-full px-5 py-2 text-xs uppercase font-medium tracking-wider hover:bg-stone-900 hover:text-white transition-colors"
+            className="flex items-center space-x-6 border border-stone-900 rounded-full px-6 py-2.5 text-sm uppercase font-medium tracking-wider hover:bg-stone-900 hover:text-white transition-colors"
           >
             <LetterSwapPingPong
-              label="VISIT ↗"
-              className="text-xs uppercase font-medium tracking-wider"
+              label="打开 ↗"
+              className="text-sm uppercase font-medium tracking-wider"
             />
           </Link>
         </div>

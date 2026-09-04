@@ -6,7 +6,7 @@ export const DETAIL_PAGE_DATA = {
   page01: {
     title: ["illustration", "design"],
     description:
-      "这是一组我挑了很久的画。画里是别人的世界，但看画的时候，想的都是你。",
+      "画是从收藏夹里挑了又挑的。别人的世界也很好看，可我盯着看时，总会忍不住想到你。",
     projectNumber: "01",
     totalProjects: "03",
     role: "页面主理人",
@@ -35,7 +35,7 @@ export const DETAIL_PAGE_DATA = {
   page02: {
     title: ["portfolio", "2026"],
     description:
-      "设计过不少页面，最难的是这一种——让“喜欢”两个字出现得刚刚好。方案仍在优化中，请给我一点时间。",
+      "做过许多设计稿，最难的始终是这一张：让“喜欢”出现得刚刚好，不多也不少。仍在反复改版，进度视你心情而定。",
     projectNumber: "02",
     totalProjects: "03",
     role: "设计师 & 长期规划者",
@@ -66,7 +66,7 @@ export const DETAIL_PAGE_DATA = {
   page03: {
     title: ["photography", "gallery"],
     description:
-      "想带你去很多地方，把沿途风景都拍下来。若镜头里多一个你，那一定是我最舍不得删的一张。",
+      "相机已经装进包里，路线可以慢慢定。只求你出现在取景框里时，别急着躲开——那会是我珍藏最久的一张。",
     projectNumber: "03",
     totalProjects: "03",
     role: "摄影师 & 理想旅客",

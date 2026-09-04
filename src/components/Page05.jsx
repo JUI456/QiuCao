@@ -16,10 +16,10 @@ export default function Page05() {
             A Letter
           </div>
 
-          <div className="absolute right-4 md:right-20 top-12 md:top-12 text-[10px] tracking-widest uppercase text-stone-700 font-medium leading-relaxed">
-            每天写一行
+          <div className="absolute right-4 md:right-20 top-12 md:top-12 text-xs sm:text-[13px] md:text-sm tracking-widest uppercase text-stone-700 font-medium leading-relaxed">
+            每天只写一行
             <br />
-            凑成一整个秋天
+            想写满整个秋天
           </div>
 
           <div
@@ -34,16 +34,16 @@ export default function Page05() {
         </div>
 
         <div className="w-full max-w-2xl mt-12 flex flex-col sm:flex-row justify-between items-start sm:items-center px-4 space-y-6 sm:space-y-0">
-          <p className="text-xs sm:text-sm text-stone-800 max-w-xs leading-relaxed font-normal">
-            如果想念可以排队寄信，这一页就是第一封。不催你回信，只是想让你知道——写信的人，正在秋天里好好等。
+          <p className="text-sm sm:text-base text-stone-800 max-w-sm leading-relaxed font-normal">
+            如果想念可以一封封寄出，这一封大概排在队首。不急着等你回信——写信的人只是怕，这个秋天走得太快，有些话来不及讲完。
           </p>
           <Link
             to="/detail/page02"
-            className="flex items-center space-x-6 border border-stone-900 rounded-full px-5 py-2 text-xs uppercase font-medium tracking-wider hover:bg-stone-900 hover:text-white transition-colors"
+            className="flex items-center space-x-6 border border-stone-900 rounded-full px-6 py-2.5 text-sm uppercase font-medium tracking-wider hover:bg-stone-900 hover:text-white transition-colors"
           >
             <LetterSwapPingPong
-              label="VISIT ↗"
-              className="text-xs uppercase font-medium tracking-wider"
+              label="打开 ↗"
+              className="text-sm uppercase font-medium tracking-wider"
             />
           </Link>
         </div>

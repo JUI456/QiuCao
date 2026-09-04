@@ -16,10 +16,10 @@ export default function Page06() {
             The End?
           </div>
 
-          <div className="absolute right-4 md:right-20 top-0 md:top-0 text-[10px] tracking-widest uppercase text-stone-700 font-medium leading-relaxed">
-            第 6 页看完啦
+          <div className="absolute right-4 md:right-20 top-0 md:top-0 text-xs sm:text-[13px] md:text-sm tracking-widest uppercase text-stone-700 font-medium leading-relaxed">
+            愿望单 · No.4
             <br />
-            奖励：一个彩蛋
+            柏林，想同你去
           </div>
 
           <div
@@ -34,19 +34,23 @@ export default function Page06() {
         </div>
 
         <div className="w-full max-w-2xl mt-12 flex flex-col sm:flex-row justify-between items-start sm:items-center px-4 space-y-6 sm:space-y-0">
-          <p className="text-xs sm:text-sm text-stone-800 max-w-xs leading-relaxed font-normal">
-            感谢你划到这里。按约定，彩蛋藏在下一页——如果发现页数刚好不够，那就说明：我们的故事，想和你一起继续往下写。
+          <p className="text-sm sm:text-base text-stone-800 max-w-sm leading-relaxed font-normal">
+           清单前三行都是小事：看一片海、吃一条街、拍一组只属于我们的照片；第四行我特意空着——想等你来补上。
           </p>
           <Link
             to="/berlin"
-            className="flex items-center space-x-6 border border-stone-900 rounded-full px-5 py-2 text-xs uppercase font-medium tracking-wider hover:bg-stone-900 hover:text-white transition-colors"
+            className="flex items-center space-x-6 border border-stone-900 rounded-full px-6 py-2.5 text-sm uppercase font-medium tracking-wider hover:bg-stone-900 hover:text-white transition-colors"
           >
             <LetterSwapPingPong
-              label="VISIT ↗"
-              className="text-xs uppercase font-medium tracking-wider"
+              label="打开 ↗"
+              className="text-sm uppercase font-medium tracking-wider"
             />
           </Link>
         </div>
+
+        <p className="max-w-md mt-8 px-4 text-center text-sm sm:text-base text-stone-700 leading-relaxed font-normal">
+         希望你每天都开心，累了就好好放松；哪天太累、不开心了，随时告诉我——我会一直在，永远支持你。
+        </p>
       </main>
     </>
   );
