@@ -19,7 +19,7 @@ export default function Page06() {
           <div className="absolute right-4 md:right-20 top-0 md:top-0 text-xs sm:text-[13px] md:text-sm tracking-widest uppercase text-stone-700 font-medium leading-relaxed">
             愿望单 · No.4
             <br />
-            柏林，想同你去
+            世界每个角落，想同你去
           </div>
 
           <div
