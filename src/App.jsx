@@ -16,22 +16,22 @@ const PAGES = [Page01, Page02, Page03, Page04, Page05, Page06];
 // BASE_URL 本地为 '/'，GitHub Pages 构建后为 '/QiuCao/'
 const BASE = import.meta.env.BASE_URL;
 const PAGE_IMAGES = [
-  `${BASE}illustration/01.png`,
-  `${BASE}portfolio/01.png`,
-  `${BASE}photograph/01.png`,
-  `${BASE}illustration/03.png`,
-  `${BASE}portfolio/02.png`,
-  `${BASE}photograph/03.png`,
+  `${BASE}illustration/01.jpg`,
+  `${BASE}portfolio/01.jpg`,
+  `${BASE}photograph/01.jpg`,
+  `${BASE}illustration/03.jpg`,
+  `${BASE}portfolio/02.jpg`,
+  `${BASE}photograph/03.jpg`,
 ];
 
 // Trail 图片元素
 const TRAIL_IMAGES = [
-  `${BASE}illustration/01.png`,
-  `${BASE}portfolio/01.png`,
-  `${BASE}photograph/01.png`,
-  `${BASE}illustration/02.png`,
-  `${BASE}portfolio/03.png`,
-  `${BASE}photograph/02.png`,
+  `${BASE}illustration/01.jpg`,
+  `${BASE}portfolio/01.jpg`,
+  `${BASE}photograph/01.jpg`,
+  `${BASE}illustration/02.jpg`,
+  `${BASE}portfolio/03.jpg`,
+  `${BASE}photograph/02.jpg`,
 ];
 
 // 每个页面的颜色配置

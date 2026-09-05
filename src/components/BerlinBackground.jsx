@@ -18,10 +18,10 @@ const BerlinBackground = () => {
   ];
 
   const IMG_URLS = [
-    `${import.meta.env.BASE_URL}illustration/01.png`,
-    `${import.meta.env.BASE_URL}portfolio/03.png`,
-    `${import.meta.env.BASE_URL}photograph/02.png`,
-    `${import.meta.env.BASE_URL}illustration/02.png`,
+    `${import.meta.env.BASE_URL}illustration/01.jpg`,
+    `${import.meta.env.BASE_URL}portfolio/03.jpg`,
+    `${import.meta.env.BASE_URL}photograph/02.jpg`,
+    `${import.meta.env.BASE_URL}illustration/02.jpg`,
   ];
 
   // 依据窗口宽度构建布局配置：窄屏（手机）等比缩小轨道与圆，避免被裁切

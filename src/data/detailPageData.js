@@ -19,16 +19,16 @@ export const DETAIL_PAGE_DATA = {
     },
     cards: [
       {
-        image: `${BASE}illustration/01.png`,
+        image: `${BASE}illustration/01.jpg`,
       },
       {
-        image: `${BASE}illustration/02.png`,
+        image: `${BASE}illustration/02.jpg`,
       },
       {
-        image: `${BASE}illustration/03.png`,
+        image: `${BASE}illustration/03.jpg`,
       },
       {
-        image: `${BASE}illustration/04.png`,
+        image: `${BASE}illustration/04.jpg`,
       },
     ],
   },
@@ -44,22 +44,22 @@ export const DETAIL_PAGE_DATA = {
     awards: "保密",
     cards: [
       {
-        image: `${BASE}portfolio/01.png`,
+        image: `${BASE}portfolio/01.jpg`,
       },
       {
-        image: `${BASE}portfolio/02.png`,
+        image: `${BASE}portfolio/02.jpg`,
       },
       {
-        image: `${BASE}portfolio/03.png`,
+        image: `${BASE}portfolio/03.jpg`,
       },
       {
-        image: `${BASE}portfolio/04.png`,
+        image: `${BASE}portfolio/04.jpg`,
       },
       {
-        image: `${BASE}portfolio/05.png`,
+        image: `${BASE}portfolio/05.jpg`,
       },
       {
-        image: `${BASE}portfolio/06.png`,
+        image: `${BASE}portfolio/06.jpg`,
       },
     ],
   },
@@ -75,16 +75,16 @@ export const DETAIL_PAGE_DATA = {
     awards: "由你颁发",
     cards: [
       {
-        image: `${BASE}photograph/01.png`,
+        image: `${BASE}photograph/01.jpg`,
       },
       {
-        image: `${BASE}photograph/02.png`,
+        image: `${BASE}photograph/02.jpg`,
       },
       {
-        image: `${BASE}photograph/03.png`,
+        image: `${BASE}photograph/03.jpg`,
       },
       {
-        image: `${BASE}photograph/04.png`,
+        image: `${BASE}photograph/04.jpg`,
       },
     ],
   },

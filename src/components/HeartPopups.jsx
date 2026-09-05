@@ -176,7 +176,7 @@ export default function HeartPopups() {
   // 每次进入随机选一张背景图（懒初始化只在首次挂载执行一次）
   const [bgImage] = useState(() => {
     const imgs = [1, 2, 3, 4].map(
-      (n) => `${import.meta.env.BASE_URL}illustration/0${n}.png`,
+      (n) => `${import.meta.env.BASE_URL}illustration/0${n}.jpg`,
     );
     return imgs[Math.floor(Math.random() * imgs.length)];
   });
