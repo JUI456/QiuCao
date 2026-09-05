@@ -4,10 +4,16 @@ import Navbar from "../components/Navbar.jsx";
 // 更新记录：新的在上
 const CHANGES = [
   {
+    version: "v1.6.0",
+    time: "2026-09-05 22:03:01",
+    text: "新增纸飞机地图功能，优化图片加载",
+    isNew: true,
+  },
+  {
     version: "v1.5.0",
     time: "2026-09-04 22:56:01",
     text: "新增若干功能，优化性能和适配功能",
-    isNew: true,
+    // isNew: true,
   },
   {
     version: "v1.4.0",

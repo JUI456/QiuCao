@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import App from "./App.jsx";
 import BerlinPage from "./pages/BerlinPage.jsx";
+import FlyToAutumnPage from "./pages/FlyToAutumnPage.jsx";
 import ChangelogPage from "./pages/ChangelogPage.jsx";
 import DetailPage from "./pages/DetailPage.jsx";
 import DecryptGame from "./components/DecryptGame.jsx";
@@ -14,6 +15,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <Routes>
       <Route path="/" element={<App />} />
       <Route path="/berlin" element={<BerlinPage />} />
+      <Route path="/route" element={<FlyToAutumnPage />} />
       <Route path="/changelog" element={<ChangelogPage />} />
       <Route path="/game" element={<DecryptGame />} />
       <Route path="/heart" element={<HeartPopups />} />

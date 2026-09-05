@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import { LetterSwapPingPong } from "./LetterSwap.jsx";
 
-export default function Navbar() {
+export default function Navbar({ hideStamp = false }) {
   return (
     <header className="absolute top-0 left-0 right-0 w-full flex justify-between items-start text-sm font-medium tracking-wider uppercase p-6 md:p-12 md:py-7 pointer-events-auto">
-      <div className="flex items-center space-x-6">
+      <div className={"flex items-center space-x-6 " + (hideStamp ? "invisible" : "")}>
         <div className="border border-stone-600 px-1.5 py-0.5 text-stone-600">
           来 中 国 带 你 去 旅 行
         </div>

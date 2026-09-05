@@ -25,6 +25,15 @@ export default function ChapterNav({ chapters, activeIndex, onSelect }) {
       <span className="flex items-center">
         <span className="text-stone-300 mx-2 md:mx-2.5">/</span>
         <Link
+          to="/route"
+          className="text-stone-400 hover:text-stone-700 transition-colors cursor-pointer whitespace-nowrap"
+        >
+          纸飞机
+        </Link>
+      </span>
+      <span className="flex items-center">
+        <span className="text-stone-300 mx-2 md:mx-2.5">/</span>
+        <Link
           to="/game"
           className="text-stone-400 hover:text-stone-700 transition-colors cursor-pointer whitespace-nowrap"
         >
