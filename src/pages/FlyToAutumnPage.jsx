@@ -578,9 +578,51 @@ function ArrivalBurst({ x, y }) {
   );
 }
 
-/* ---------------- 海上的瓶中信（只在开阔海面漂移，绝不进入陆地；点击拆开） ---------------- */
+/* ---------------- 洋流拖尾：瓶子漂过留下一条淡淡的航迹，缓慢淡出 ---------------- */
+const WAKE_LIFE = 7; // 尾迹存活秒数
+function addWakeSeg(g, d, stroke, width, base) {
+  const p = document.createElementNS("http://www.w3.org/2000/svg", "path");
+  p.setAttribute("d", d);
+  p.setAttribute("fill", "none");
+  p.setAttribute("stroke", stroke);
+  p.setAttribute("stroke-width", width);
+  p.setAttribute("stroke-linecap", "round");
+  p.setAttribute("opacity", String(base));
+  p.dataset.op = "1";
+  p.dataset.base = String(base);
+  g.appendChild(p);
+}
+function BottleWake({ layerRef }) {
+  useEffect(() => {
+    let raf;
+    let last = performance.now();
+    const step = (now) => {
+      const dt = (now - last) / 1000;
+      last = now;
+      const g = layerRef.current;
+      if (g) {
+        for (let i = g.children.length - 1; i >= 0; i--) {
+          const seg = g.children[i];
+          const o = parseFloat(seg.dataset.op) - dt / WAKE_LIFE;
+          if (o <= 0) {
+            seg.remove();
+            continue;
+          }
+          seg.dataset.op = String(o);
+          const base = parseFloat(seg.dataset.base) || 0.42;
+          seg.setAttribute("opacity", (base * Math.pow(o, 0.75)).toFixed(3));
+        }
+      }
+      raf = requestAnimationFrame(step);
+    };
+    raf = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(raf);
+  }, [layerRef]);
+  return <g ref={layerRef} className="bottle-wake" pointerEvents="none" />;
+}
+
 /* ---------------- 海上的瓶中信（全图海域随机漫游，绝不进入陆地；点击拆开） ---------------- */
-function DriftingBottle({ onOpen, onDone }) {
+function DriftingBottle({ onOpen, onDone, wake }) {
   const ref = useRef(null);
   useEffect(() => {
     const el = ref.current;
@@ -593,6 +635,8 @@ function DriftingBottle({ onOpen, onDone }) {
     let segDur = 2600 + Math.random() * 2600;
     const born = performance.now();
     let raf;
+    let lastEmit = 0;
+    let prevPt = null;
     const apply = (x, y, life) => {
       el.style.left = `${x / 16}%`;
       el.style.top = `${y / 10}%`;
@@ -623,11 +667,24 @@ function DriftingBottle({ onOpen, onDone }) {
       const x = cur[0] + (tgt[0] - cur[0]) * e;
       const y = cur[1] + (tgt[1] - cur[1]) * e;
       apply(x, y, life);
+
+      // 每隔一小段距离补一节航迹；淡出由 BottleWake 统一负责，瓶子卸载也不影响
+      const g = wake && wake.current;
+      if (g && now - lastEmit > 90) {
+        if (prevPt) {
+          const d = `M${prevPt[0].toFixed(1)} ${prevPt[1].toFixed(1)} L${x.toFixed(1)} ${y.toFixed(1)}`;
+          // 两层泡沫：淡蓝外晕托一下，白色内核才不会糊在浅色海面上
+          addWakeSeg(g, d, "#b6c6cd", 3.6, 0.34);
+          addWakeSeg(g, d, "#ffffff", 1.5, 0.8);
+        }
+        prevPt = [x, y];
+        lastEmit = now;
+      }
       raf = requestAnimationFrame(step);
     };
     raf = requestAnimationFrame(step);
     return () => cancelAnimationFrame(raf);
-  }, [onDone]);
+  }, [onDone, wake]);
 
   return (
     <button
@@ -702,9 +759,15 @@ function BubbleCard({ x, y, caption, note }) {
 }
 
 /* ---------------- 静态底图（不随时间重绘） ---------------- */
-const MapStatic = memo(function MapStatic() {
+const MapStatic = memo(function MapStatic({ whisper = false }) {
   return (
-    <g>
+    <g
+      style={{
+        // 悄悄话模式：鼠标静置后，整幅世界的痕迹褪去，只留两个城市点
+        opacity: whisper ? 0.08 : 1,
+        transition: "opacity 2.6s ease",
+      }}
+    >
       {/* 经纬网格 */}
       <g stroke="#e2dccf" strokeWidth="1">
         {[200, 400, 600, 800].map((y) => (
@@ -1061,6 +1124,35 @@ export default function FlyToAutumnPage() {
     return () => clearTimeout(t);
   }, [bubble]);
 
+  // 悄悄话 · 靠近中继：静置 >8s，整幅世界褪去，只剩两个城市点
+  const [whisper, setWhisper] = useState(false);
+  const quietRef = useRef(false);
+  useEffect(() => {
+    let t;
+    const reset = () => {
+      clearTimeout(t);
+      // 只在状态真正翻转时 setState，避免每次 mousemove 都重渲染
+      if (quietRef.current) {
+        quietRef.current = false;
+        setWhisper(false);
+      }
+      t = setTimeout(() => {
+        quietRef.current = true;
+        setWhisper(true);
+      }, 8000);
+    };
+    const evs = ["pointermove", "pointerdown", "wheel", "keydown", "touchstart"];
+    evs.forEach((e) => window.addEventListener(e, reset, { passive: true }));
+    reset();
+    return () => {
+      clearTimeout(t);
+      evs.forEach((e) => window.removeEventListener(e, reset));
+    };
+  }, []);
+
+  // 洋流拖尾的绘制层（挂在 map 的 SVG 里，坐标与瓶子完全一致）
+  const wakeRef = useRef(null);
+
   // 两地真实天气（open-meteo，断网时静默隐藏）
   const [weatherHZ, setWeatherHZ] = useState(null);
   const [weatherNB, setWeatherNB] = useState(null);
@@ -1225,10 +1317,35 @@ export default function FlyToAutumnPage() {
             aria-label="世界地图：杭州与宁平之间往返的纸飞机"
           >
             {/* 静态底图（大陆 / 海 / 罗盘） */}
-            <MapStatic />
+            <MapStatic whisper={whisper} />
 
             {/* 昼夜：夜色 · 晨昏线 · 星空 · 太阳 */}
             <NightLayer utcHours={utcHours} />
+
+            {/* 悄悄话：世界褪去后浮起的那句话 */}
+            <AnimatePresence>
+              {whisper && (
+                <motion.text
+                  key="whisper"
+                  x="800"
+                  y="120"
+                  textAnchor="middle"
+                  fontSize="20"
+                  letterSpacing="6"
+                  fill="#a89a92"
+                  className="font-serif italic"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 2.2, ease: "easeInOut" }}
+                >
+                  全世界只剩下你和我 · Just the two of us
+                </motion.text>
+              )}
+            </AnimatePresence>
+
+            {/* 漂流瓶的洋流航迹 */}
+            <BottleWake layerRef={wakeRef} />
 
             {/* 航线 */}
             <path
@@ -1289,6 +1406,7 @@ export default function FlyToAutumnPage() {
                   key={bottle.id}
                   onOpen={() => bottleOpen(bottle.note)}
                   onDone={bottleDone}
+                  wake={wakeRef}
                 />
               )}
             </AnimatePresence>
