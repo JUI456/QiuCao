@@ -1,0 +1,81 @@
+{
+  "schemaVersion": "mimosa-finding-ledger-batch/v1",
+  "batchId": "stop-20261001T143615383Z-68998-626b2fdb27ff",
+  "runId": "20261001T143615383Z-68998-626b2fdb27ff",
+  "runStatus": "inconclusive",
+  "coverage": {
+    "status": "partial",
+    "reasons": [
+      {
+        "code": "baseline_snapshot_unreadable",
+        "stage": "baseline-read",
+        "target": "src/data/birthdayConfig.js",
+        "detail": "file is missing from task baseline",
+        "affectsCompletion": true
+      },
+      {
+        "code": "project_check_failed",
+        "stage": "baseline-read",
+        "target": "src/data/birthdayConfig.js",
+        "detail": "baseline_snapshot_unreadable: file is missing from task baseline",
+        "affectsCompletion": true
+      }
+    ]
+  },
+  "source": {
+    "component": "zcode-hook",
+    "operationId": "Stop"
+  },
+  "revision": "48a6960cd720d60673f1345e50aeb823a8edd91a",
+  "diffHash": "b8a872dbfb4012919f44b4b70e99904e79cfeabbdf9e72a9a56ddb47365af734",
+  "rulesVersion": "unavailable",
+  "sessionHash": "243857a4784f13109c2a478e8de84a6067de13364227a033d65cadfd873c6aa9",
+  "reportRef": ".mimosa/reports/task-review-sess_0eac8c01-a473-4145-b032-f90ed2eb06e7-20261001T143615383Z-68998-626b2fdb27ff.json",
+  "events": [],
+  "observedFindingIds": [
+    "mimosa-a82c63819d14c24324b6a83d",
+    "mimosa-9540398c3e6214d375cb50a1",
+    "mimosa-03888e40fb774ab1642ff999",
+    "mimosa-2d270dec2bd4d5017d2096c8",
+    "mimosa-55b44cd2aee28151f82f5749",
+    "mimosa-f54805f528bbfd452386aece",
+    "mimosa-ab43d9fa3861362513cdb82f",
+    "mimosa-b6dd2a56bb56e5ca5b8d3688",
+    "mimosa-5dfe494f2f0556ad9dc3d465",
+    "mimosa-7dd48d8878b07c894ff04bb8",
+    "mimosa-c2d5eb462af5159ba0121c61"
+  ],
+  "verifiedFiles": [
+    {
+      "file": "src/pages/BirthdayPage.jsx",
+      "direct": "complete",
+      "projectContext": "partial"
+    },
+    {
+      "file": "src/main.jsx",
+      "direct": "complete",
+      "projectContext": "partial"
+    },
+    {
+      "file": "src/pages/ChangelogPage.jsx",
+      "direct": "complete",
+      "projectContext": "partial"
+    },
+    {
+      "file": "src/data/birthdayConfig.js",
+      "direct": "complete",
+      "projectContext": "partial"
+    },
+    {
+      "file": "src/components/ChapterNav.jsx",
+      "direct": "complete",
+      "projectContext": "partial"
+    },
+    {
+      "file": "src/components/Navbar.jsx",
+      "direct": "complete",
+      "projectContext": "partial"
+    }
+  ],
+  "recordedAt": "2026-10-01T14:36:15.682Z"
+}

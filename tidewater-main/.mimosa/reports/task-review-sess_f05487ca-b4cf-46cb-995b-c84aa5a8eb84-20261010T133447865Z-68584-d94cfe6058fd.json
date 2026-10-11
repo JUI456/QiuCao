@@ -1,0 +1,213 @@
+{
+  "schema_version": "mimosa-task-review/v2",
+  "run_id": "20261010T133447865Z-68584-d94cfe6058fd",
+  "run_status": "completed",
+  "errors": [],
+  "coverage": {
+    "schema_version": "mimosa-hook-coverage/v1",
+    "status": "complete",
+    "scope": "hook_observed_diff",
+    "baseline": {
+      "complete": true,
+      "captured_files": 220,
+      "candidate_limit": 5000,
+      "truncated": false,
+      "enumeration_error_count": 0,
+      "snapshot_error_count": 0,
+      "compensated_target_count": 2
+    },
+    "change_tracking": {
+      "touched_observed": 2,
+      "touched_retained": 2,
+      "truncated": false,
+      "bash_mutation": false,
+      "bash_discovered": 0,
+      "bash_discovery_limit": 80,
+      "bash_discovery_truncated": false
+    },
+    "candidates": {
+      "eligible_files": 2,
+      "selected_files": 2,
+      "limit": 20,
+      "truncated": false
+    },
+    "scanning": {
+      "required_files": 2,
+      "scanned_files": 2,
+      "skipped_files": 0,
+      "failed_files": 0,
+      "project_checks_required": 0,
+      "project_checks_completed": 0
+    },
+    "notification": {
+      "eligible_findings": 1,
+      "detailed_findings": 0,
+      "detail_limit": 3,
+      "truncated": true
+    },
+    "reason_counts": {},
+    "reasons": [],
+    "reasons_truncated": false
+  },
+  "generated_at": "2026-10-10T13:34:47.865Z",
+  "session_id": "sess_f05487ca-b4cf-46cb-995b-c84aa5a8eb84",
+  "target": ".",
+  "revision": "48a6960cd720d60673f1345e50aeb823a8edd91a",
+  "rules_version": "unavailable",
+  "diff_hash": "44e69a65f3008ee7443bb4cc2bfbe7e171f9fc72b764ad71768b4c0752545850",
+  "diff": {
+    "algorithm": "sha256",
+    "changed_file_count": 2,
+    "changed_files": [
+      {
+        "file": "src/world/Terrain.js",
+        "ranges": [
+          {
+            "start": 8,
+            "end": 8
+          },
+          {
+            "start": 107,
+            "end": 109
+          },
+          {
+            "start": 556,
+            "end": 566
+          },
+          {
+            "start": 620,
+            "end": 622
+          }
+        ],
+        "before_hash": "e2d80b67aa9e778fd563247c6b75dd8b9a6115da0295602c6d10dfb2ee1c724b",
+        "after_hash": "cb3f8b548acc2cfded89069eb6254275a6906a5379fcd9818b711b44acfc5b50"
+      },
+      {
+        "file": "src/world/terrain/BeachMessage.js",
+        "ranges": [
+          {
+            "start": 1,
+            "end": 102
+          }
+        ],
+        "before_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "after_hash": "97cdfb9f2907fc5366126df10f9d110fe4b43d52a8249987fc0fce5e27edb24c"
+      }
+    ]
+  },
+  "timing": {
+    "started_at": "2026-10-10T13:34:47.152Z",
+    "completed_at": "2026-10-10T13:34:47.865Z",
+    "duration_ms": 713,
+    "measurement": "hook_wall_clock"
+  },
+  "tokens": {
+    "input": 0,
+    "output": 0,
+    "total": 0,
+    "model_calls": 0,
+    "measurement": "known-zero"
+  },
+  "telemetry": {
+    "schemaVersion": "mimosa-gate-telemetry/v1",
+    "profile": "gate",
+    "operation": "Stop",
+    "outcome": "complete",
+    "latencyMs": 713,
+    "peakMemoryBytes": 208863232,
+    "memoryMeasurement": "max-observed-process-rss",
+    "scannedFiles": 2,
+    "cache": {
+      "hits": 0,
+      "misses": 0,
+      "measurement": "not-applicable"
+    },
+    "denyCount": 0,
+    "tokens": {
+      "input": 0,
+      "output": 0,
+      "total": 0,
+      "modelCalls": 0,
+      "measurement": "known-zero"
+    }
+  },
+  "finding_count": 1,
+  "rewake_finding_count": 0,
+  "evidence_boundary": {
+    "scan": "candidate",
+    "static_fix_verification": "observed_static_only",
+    "runtime_verification": "not_performed"
+  },
+  "finding_events": [
+    {
+      "finding_id": "mimosa-b0dfe948403715eb3ad229d0",
+      "file": "src/world/terrain/BeachMessage.js",
+      "line": 44,
+      "rule_id": "security",
+      "severity": "high",
+      "category": "弱随机数",
+      "status": "candidate",
+      "decision": "advisory",
+      "at": "2026-10-10T13:31:53.998Z",
+      "evidence": {
+        "kind": "source",
+        "boundary": "candidate",
+        "producer": "deterministic",
+        "source": "semgrep",
+        "evidence_hash": "a66b2d2c1cd544003b6f9dac8a7bf8bfc329dec95e2eebd9a3e8c0a3f09341db",
+        "runtime_oracle": false
+      }
+    },
+    {
+      "finding_id": "mimosa-b0dfe948403715eb3ad229d0",
+      "file": "src/world/terrain/BeachMessage.js",
+      "line": 44,
+      "severity": "high",
+      "category": "弱随机数",
+      "status": "candidate",
+      "decision": "observe",
+      "at": "2026-10-10T13:34:47.865Z",
+      "evidence": {
+        "kind": "static_scan",
+        "boundary": "candidate",
+        "producer": "deterministic",
+        "source": "semgrep",
+        "evidence_hash": "a66b2d2c1cd544003b6f9dac8a7bf8bfc329dec95e2eebd9a3e8c0a3f09341db",
+        "runtime_oracle": false
+      }
+    }
+  ],
+  "findings": [
+    {
+      "finding_id": "mimosa-b0dfe948403715eb3ad229d0",
+      "file": "src/world/terrain/BeachMessage.js",
+      "line": 44,
+      "end_line": 44,
+      "severity": "high",
+      "category": "弱随机数",
+      "kind": "semgrep",
+      "advisory": true,
+      "status": "candidate",
+      "evidence_boundary": "candidate",
+      "evidence": [
+        {
+          "kind": "static_scan",
+          "boundary": "candidate",
+          "producer": "deterministic",
+          "source": "semgrep",
+          "file": "src/world/terrain/BeachMessage.js",
+          "line": 44,
+          "evidence_hash": "a66b2d2c1cd544003b6f9dac8a7bf8bfc329dec95e2eebd9a3e8c0a3f09341db",
+          "runtime_oracle": false
+        }
+      ],
+      "already_reported_to_agent": false,
+      "selected_for_rewake": false
+    }
+  ],
+  "artifacts": {
+    "immutable_report": ".mimosa/reports/task-review-sess_f05487ca-b4cf-46cb-995b-c84aa5a8eb84-20261010T133447865Z-68584-d94cfe6058fd.json",
+    "latest_report": ".mimosa/reports/task-review-sess_f05487ca-b4cf-46cb-995b-c84aa5a8eb84.json",
+    "history_summary": ".mimosa/history/run-20261010T133447865Z-68584-d94cfe6058fd.json"
+  }
+}

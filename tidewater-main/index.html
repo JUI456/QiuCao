@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Tidewater · 潮汐之岛</title>
+	<link rel="preload" as="image" href="ui/keyart-720.jpg" imagesrcset="ui/keyart-720.jpg 1280w, ui/keyart.jpg 2560w" imagesizes="100vw" />
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Caveat+Brush&family=Kalam:wght@400;700&display=swap" rel="stylesheet" />
+	<link rel="stylesheet" href="/src/ui/ui.css" />
+	<style>
+		html, body { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; background: #000; }
+		#app, #app canvas { display: block; }
+		#fps { position: fixed; top: 10px; left: 12px; z-index: 50; font: 500 12px/1.2 'JetBrains Mono', ui-monospace, monospace;
+			color: #e8f6ff; background: rgba(8, 14, 22, 0.55); padding: 5px 9px; border-radius: 6px; pointer-events: none;
+			backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); letter-spacing: 0.02em; }
+	</style>
+</head>
+<body>
+	<div id="app"></div>
+	<div id="fps">-- fps</div>
+	<div id="loader" role="status" aria-live="polite" aria-label="加载 Tidewater">
+		<img class="loader-art" src="ui/keyart-720.jpg" srcset="ui/keyart-720.jpg 1280w, ui/keyart.jpg 2560w" sizes="100vw" alt="" decoding="async" fetchpriority="high" onload="this.classList.add('is-in')" />
+		<div class="loader-scrim"></div>
+		<div class="loader-inner">
+			<div class="loader-brand">
+				<p class="loader-kicker">海岛钓鱼游戏</p>
+				<h1 class="loader-title">潮汐之岛</h1>
+				<p class="loader-tagline">出海、绕礁、下深水，在天黑前把渔获卖给 Joe。</p>
+			</div>
+			<div class="loader-panel">
+				<div class="loader-row">
+					<span class="loader-status">正在启动…</span>
+					<span class="loader-meta"><span class="loader-pct">0%</span><span class="loader-time">0:00</span></span>
+				</div>
+				<div class="loader-bar"><div class="loader-fill"></div><div class="loader-glint"></div></div>
+				<div class="loader-note">首次启动需要编译着色器，可能要等一两分钟。之后访问会快很多。</div>
+				<div class="loader-tips">
+					<span class="loader-tip-label">小提示</span>
+					<div class="loader-tip-list">
+						<p class="loader-tip">按 <kbd>R</kbd> 拿出钓竿。按住鼠标左键蓄力，松开甩竿：按得越久，甩得越远。</p>
+						<p class="loader-tip">盯紧浮标。先点几下，然后被拽下水：在那一刻按下鼠标左键刺鱼。</p>
+						<p class="loader-tip">搏鱼时按住收线，但要把线的张力保持在绿区。鱼发力冲的时候松手，否则线会断。</p>
+						<p class="loader-tip">哪里能钓到什么鱼，取决于你选的水域：浅滩、礁区、断崖外的深水，还有一天中的时间。</p>
+						<p class="loader-tip">码头边鱼摊的 Joe 会收你的渔获。鱼越重越值钱，尽量带大的回去。</p>
+						<p class="loader-tip">船屋的 Marta 卖升级装备：更强的鱼线、更快的渔轮、更大的船舱、更多燃料和探鱼器。</p>
+						<p class="loader-tip">在船边按 <kbd>E</kbd> 登船，到舵轮再按 <kbd>E</kbd> 掌舵，再按一次即可离开，在甲板上走动。</p>
+						<p class="loader-tip">按 <kbd>I</kbd> 打开冷藏箱和鱼类图鉴。从 Marta 那买的甲板灯能让你夜间垂钓。</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="module" src="/src/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+{
+  "schemaVersion": "mimosa-finding-ledger-batch/v1",
+  "batchId": "stop-20261010T133447865Z-68584-d94cfe6058fd",
+  "runId": "20261010T133447865Z-68584-d94cfe6058fd",
+  "runStatus": "completed",
+  "coverage": {
+    "status": "complete",
+    "reasons": []
+  },
+  "source": {
+    "component": "zcode-hook",
+    "operationId": "Stop"
+  },
+  "revision": "48a6960cd720d60673f1345e50aeb823a8edd91a",
+  "diffHash": "44e69a65f3008ee7443bb4cc2bfbe7e171f9fc72b764ad71768b4c0752545850",
+  "rulesVersion": "unavailable",
+  "sessionHash": "23104c3277af854d3501c9277d94c56eb894d496bbfdc4842a73785d5f9fe5cf",
+  "reportRef": ".mimosa/reports/task-review-sess_f05487ca-b4cf-46cb-995b-c84aa5a8eb84-20261010T133447865Z-68584-d94cfe6058fd.json",
+  "events": [
+    {
+      "eventId": "hook-d0206a887a432f53369799a24add0b13",
+      "findingId": "mimosa-b0dfe948403715eb3ad229d0",
+      "type": "finding_observed",
+      "at": "2026-10-10T13:31:53.998Z",
+      "identity": {
+        "projectRelativeFile": "src/world/terrain/BeachMessage.js",
+        "ruleId": "security",
+        "codeEvidenceHash": "a66b2d2c1cd544003b6f9dac8a7bf8bfc329dec95e2eebd9a3e8c0a3f09341db",
+        "confidence": "stable"
+      },
+      "scope": "direct",
+      "line": 44,
+      "endLine": 44,
+      "reasonCode": "advisory",
+      "reportedToAgent": true,
+      "evidence": {
+        "kind": "source",
+        "boundary": "candidate",
+        "producer": "deterministic",
+        "evidenceHash": "a66b2d2c1cd544003b6f9dac8a7bf8bfc329dec95e2eebd9a3e8c0a3f09341db"
+      },
+      "sequence": 0
+    },
+    {
+      "eventId": "hook-4c7cdd101c0c2b8ed4236724a9ec5b01",
+      "findingId": "mimosa-b0dfe948403715eb3ad229d0",
+      "type": "finding_observed",
+      "at": "2026-10-10T13:34:47.865Z",
+      "identity": {
+        "projectRelativeFile": "src/world/terrain/BeachMessage.js",
+        "ruleId": "security",
+        "codeEvidenceHash": "a66b2d2c1cd544003b6f9dac8a7bf8bfc329dec95e2eebd9a3e8c0a3f09341db",
+        "confidence": "stable"
+      },
+      "scope": "direct",
+      "line": 44,
+      "endLine": 44,
+      "reasonCode": "observe",
+      "reportedToAgent": false,
+      "evidence": {
+        "kind": "source",
+        "boundary": "candidate",
+        "producer": "deterministic",
+        "evidenceHash": "a66b2d2c1cd544003b6f9dac8a7bf8bfc329dec95e2eebd9a3e8c0a3f09341db"
+      },
+      "sequence": 1
+    }
+  ],
+  "observedFindingIds": [
+    "mimosa-b0dfe948403715eb3ad229d0"
+  ],
+  "verifiedFiles": [
+    {
+      "file": "src/world/terrain/BeachMessage.js",
+      "direct": "complete",
+      "projectContext": "partial"
+    },
+    {
+      "file": "src/world/Terrain.js",
+      "direct": "complete",
+      "projectContext": "partial"
+    }
+  ],
+  "recordedAt": "2026-10-10T13:34:48.155Z"
+}

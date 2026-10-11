@@ -1,0 +1,34 @@
+{
+  "schemaVersion": "mimosa-finding-ledger-batch/v1",
+  "batchId": "stop-20261003T112313113Z-97249-e187995aee8e",
+  "runId": "20261003T112313113Z-97249-e187995aee8e",
+  "runStatus": "completed",
+  "coverage": {
+    "status": "complete",
+    "reasons": []
+  },
+  "source": {
+    "component": "zcode-hook",
+    "operationId": "Stop"
+  },
+  "revision": "48a6960cd720d60673f1345e50aeb823a8edd91a",
+  "diffHash": "01713f2c5e583beecfaa26aa10a73af8c88586161f143e807d5b365fa9a5831d",
+  "rulesVersion": "unavailable",
+  "sessionHash": "243857a4784f13109c2a478e8de84a6067de13364227a033d65cadfd873c6aa9",
+  "reportRef": ".mimosa/reports/task-review-sess_0eac8c01-a473-4145-b032-f90ed2eb06e7-20261003T112313113Z-97249-e187995aee8e.json",
+  "events": [],
+  "observedFindingIds": [],
+  "verifiedFiles": [
+    {
+      "file": "src/pages/WonderlandChapterPage.jsx",
+      "direct": "complete",
+      "projectContext": "partial"
+    },
+    {
+      "file": "src/main.jsx",
+      "direct": "complete",
+      "projectContext": "partial"
+    }
+  ],
+  "recordedAt": "2026-10-03T11:23:13.406Z"
+}

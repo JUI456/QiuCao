@@ -4,10 +4,15 @@ import Navbar from "../components/Navbar.jsx";
 // 更新记录：新的在上
 const CHANGES = [
   {
+    version: "v1.7.0",
+    time: "2026-10-01 22:40:00",
+    text: "新增生日档案页：倒数解锁、吹蜡烛、23 支迟到的蜡烛与第 25 个生日之约",
+    isNew: true,
+  },
+  {
     version: "v1.6.0",
     time: "2026-09-05 22:03:01",
     text: "新增纸飞机地图功能，优化图片加载",
-    isNew: true,
   },
   {
     version: "v1.5.0",

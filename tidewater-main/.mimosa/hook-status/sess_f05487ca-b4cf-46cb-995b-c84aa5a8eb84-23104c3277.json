@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "mimosa-hook-status/v1",
+  "recordedAt": "2026-10-10T13:53:05.640Z",
+  "sessionId": "sess_f05487ca-b4cf-46cb-995b-c84aa5a8eb84",
+  "event": "PostToolUse",
+  "toolName": "Write",
+  "file": "src/world/terrain/BeachMessage.js",
+  "outcome": "clear",
+  "coverage": "complete",
+  "findingCount": 0,
+  "durationMs": 7,
+  "hostState": "hook_complete",
+  "reportHint": ".mimosa/reports/"
+}
